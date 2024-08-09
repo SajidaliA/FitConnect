@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_50ssp"
+        android:alpha="0.9"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_25ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_step"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="@dimen/_50ssp"
+        android:background="@drawable/bg_border"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_app_name">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_step"
+            android:layout_width="@dimen/_30ssp"
+            android:layout_height="@dimen/_30ssp"
+            android:alpha="0.9"
+            android:src="@drawable/footstep"
+            android:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_step_cont"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_30ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_step"
+            tools:text="512" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/tv_total_step_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.9"
+        android:layout_marginTop="@dimen/_10ssp"
+        android:text="@string/total_steps"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_step" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_heart_bit"
+        android:layout_width="@dimen/_15ssp"
+        android:layout_height="@dimen/_15ssp"
+        android:layout_marginEnd="@dimen/_5ssp"
+        android:alpha="0.8"
+        android:src="@drawable/heart_bit"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tv_heart_bit"
+        app:layout_constraintEnd_toStartOf="@id/tv_heart_bit"
+        app:layout_constraintTop_toTopOf="@id/tv_heart_bit" />
+
+    <TextView
+        android:id="@+id/tv_heart_bit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30ssp"
+        android:alpha="0.8"
+        android:includeFontPadding="false"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toStartOf="@id/tv_calories_burned"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_total_step_label"
+        tools:text="70" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_calories"
+        android:layout_width="@dimen/_15ssp"
+        android:layout_height="@dimen/_15ssp"
+        android:layout_marginEnd="@dimen/_5ssp"
+        android:alpha="0.8"
+        android:src="@drawable/calories"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tv_calories_burned"
+        app:layout_constraintEnd_toStartOf="@id/tv_calories_burned"
+        app:layout_constraintTop_toTopOf="@id/tv_calories_burned" />
+
+    <TextView
+        android:id="@+id/tv_calories_burned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.8"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16ssp"
+        android:includeFontPadding="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_heart_bit"
+        app:layout_constraintTop_toTopOf="@id/tv_heart_bit"
+        tools:text="1" />
+
+    <TextView
+        android:id="@+id/tv_calories_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_3ssp"
+        android:alpha="0.5"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/kcal"
+        android:includeFontPadding="false"
+        android:layout_marginBottom="@dimen/_1ssp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_calories_burned"
+        app:layout_constraintStart_toEndOf="@id/tv_calories_burned" />
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40ssp"
+        android:background="@drawable/bg_round"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/round_ripple"
+        android:orientation="horizontal"
+        android:paddingHorizontal="@dimen/_20ssp"
+        android:paddingVertical="@dimen/_10ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_14ssp"
+            android:layout_height="@dimen/_14ssp"
+            android:src="@drawable/share"
+            android:clickable="false"
+            android:tint="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/iv_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10ssp"
+            android:clickable="false"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/share_with_friends"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.constraintlayout.widget.ConstraintLayout>
