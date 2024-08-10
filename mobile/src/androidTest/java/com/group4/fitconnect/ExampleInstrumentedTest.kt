@@ -1,4 +1,4 @@
-package com.rubrics.fitconnect
+package com.group4.fitconnect
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

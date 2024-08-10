@@ -5,4 +5,8 @@
     values-round/strings.xml for round devices.
     -->
     <string name="hello_world">From the Square world,\nHello, %1$s!</string>
+    <string name="steps">Steps</string>
+    <string name="hear_bit">Heart</string>
+    <string name="kcal">Kcal</string>
+    <string name="share">Share</string>
 </resources>

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Fit Connect</string>
-    <string name="kcal">KCAL</string>
+    <string name="kcal">Kcal</string>
     <string name="share_with_friends">Share with friends</string>
-    <string name="total_steps">Total Steps</string>
+    <string name="total_steps">Steps</string>
+    <string name="start">Start</string>
+    <string name="heart_bit">Heart Bit</string>
 </resources>

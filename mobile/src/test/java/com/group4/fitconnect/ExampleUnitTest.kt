@@ -1,4 +1,4 @@
-package com.rubrics.fitconnect
+package com.group4.fitconnect
 
 import org.junit.Test
 

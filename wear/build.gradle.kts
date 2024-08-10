@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.rubrics.fitconnect"
+    namespace = "com.group4.fitconnect"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rubrics.fitconnect"
+        applicationId = "com.group4.fitconnect"
         minSdk = 30
         targetSdk = 34
         versionCode = 1
@@ -53,6 +53,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.wear.tooling.preview)
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.activity.compose)

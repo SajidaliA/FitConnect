@@ -8,5 +8,5 @@
 
     <stroke
         android:width="@dimen/_5ssp"
-        android:color="@color/white" />
+        android:color="@color/border_blue" />
 </shape>

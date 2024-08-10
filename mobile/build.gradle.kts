@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.rubrics.fitconnect"
+    namespace = "com.group4.fitconnect"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.rubrics.fitconnect"
+        applicationId = "com.group4.fitconnect"
         minSdk = 30
         targetSdk = 34
         versionCode = 1

@@ -1,4 +1,4 @@
-package com.rubrics.fitconnect.presentation.theme
+package com.group4.fitconnect.presentation.theme
 
 import androidx.compose.runtime.Composable
 import androidx.wear.compose.material.MaterialTheme
