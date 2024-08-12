@@ -5,6 +5,6 @@
     <color name="background">#141D25</color>
     <color name="background_light">#1C2531</color>
     <color name="grey_line">#444d57</color>
-    <color name="border_blue">#01B9D2</color>
-    <color name="accent">#EA1179</color>
+    <color name="border_blue">#2563F9</color>
+    <color name="pink">#D9018D</color>
 </resources>

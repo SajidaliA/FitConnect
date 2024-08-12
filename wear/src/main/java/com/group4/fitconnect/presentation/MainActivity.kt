@@ -13,32 +13,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.group4.fitconnect.data.SensorData
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private lateinit var sensorData: SensorData
-    private var progress = 0f
-    private var isRunning = false
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
-
         super.onCreate(savedInstanceState)
-
         setTheme(android.R.style.Theme_DeviceDefault)
-        sensorData = getSensorData()
         setContent {
-            WearApp(sensorData = sensorData, progress, isRunning)
+            WearApp()
         }
-    }
-
-    //Method to get the sensor data
-    private fun getSensorData(): SensorData {
-        return SensorData(0, 0, 0)
     }
 }
 
 @Preview(device = Devices.WEAR_OS_SMALL_ROUND, showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    WearApp(SensorData(4568, 71, 14), 0.5f)
+    WearApp()
 }

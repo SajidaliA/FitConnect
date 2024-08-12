@@ -16,6 +16,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,10 +35,17 @@ import androidx.wear.compose.material.ButtonDefaults
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.group4.fitconnect.R
-import com.group4.fitconnect.data.SensorData
+import com.group4.fitconnect.viewmodel.HealthViewModel
 
 @Composable
-fun SensorDetails(sensorData: SensorData, goal: Int, isRunning: Boolean) {
+fun SensorDetails(healthViewModel: HealthViewModel) {
+    healthViewModel.getHeartRate()
+    val goal = healthViewModel.goal.value
+    val heartRate = healthViewModel.heartRate.value
+    val steps = healthViewModel.steps.value
+    val caloriesBurned = steps * 0.045
+    val isRunning by remember { mutableStateOf(false) }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -54,7 +64,7 @@ fun SensorDetails(sensorData: SensorData, goal: Int, isRunning: Boolean) {
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White,
-            text = sensorData.steps.toString()
+            text = steps.toString()
         )
         Text(
             fontSize = 8.sp,
@@ -90,7 +100,7 @@ fun SensorDetails(sensorData: SensorData, goal: Int, isRunning: Boolean) {
                     fontSize = 8.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
-                    text = sensorData.heartBit.toString()
+                    text = heartRate.toString()
                 )
                 Text(
                     textAlign = TextAlign.Center,
@@ -117,11 +127,7 @@ fun SensorDetails(sensorData: SensorData, goal: Int, isRunning: Boolean) {
                             )
                             .padding(12.dp),
                         colorFilter = ColorFilter.tint(colorResource(id = R.color.accent)),
-                        painter = if (isRunning) {
-                            painterResource(id = R.drawable.pause)
-                        }else{
-                            painterResource(id = R.drawable.play)
-                        },
+                        painter = painterResource(id = R.drawable.reset),
                         contentDescription = null
                     )
                 })
@@ -149,7 +155,7 @@ fun SensorDetails(sensorData: SensorData, goal: Int, isRunning: Boolean) {
                     fontSize = 8.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
-                    text = sensorData.caloriesBurned.toString()
+                    text = caloriesBurned.toString()
                 )
                 Text(
                     modifier = Modifier.padding(1.dp),

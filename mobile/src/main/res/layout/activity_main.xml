@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_10ssp"
-        android:layout_marginTop="@dimen/_20ssp"
+        android:layout_marginTop="@dimen/_30ssp"
         android:alpha="0.9"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/app_name"
@@ -27,7 +27,7 @@
         android:layout_height="@dimen/_20ssp"
         android:layout_marginEnd="@dimen/_15ssp"
         android:src="@drawable/app_icon"
-            app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_app_name" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -37,7 +37,6 @@
         android:layout_gravity="center"
         android:layout_marginHorizontal="@dimen/_10ssp"
         android:layout_marginTop="@dimen/_15ssp"
-        android:background="@drawable/bg_blue_round"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingVertical="@dimen/_20ssp"
@@ -46,20 +45,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_app_name">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:background="@drawable/bg_border"
             android:gravity="center"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_step"
-                android:layout_width="@dimen/_30ssp"
-                android:layout_height="@dimen/_30ssp"
-                android:alpha="0.9"
-                android:src="@drawable/footstep"
-                android:tint="@color/border_blue" />
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/circular_progress"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                app:cpb_background_progressbar_color="#55F2F2F2"
+                app:cpb_background_progressbar_width="@dimen/_10ssp"
+                app:cpb_progress_max="5000"
+                app:cpb_progress="2654"
+                app:cpb_progressbar_color="@color/white"
+                app:cpb_progressbar_width="@dimen/_9ssp"
+                app:cpb_round_border="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_step_cont"
@@ -68,26 +74,27 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:includeFontPadding="false"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_30ssp"
+                android:textSize="@dimen/_35ssp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iv_step"
-                tools:text="512" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2512" />
 
             <TextView
                 android:id="@+id/tv_total_step_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:alpha="0.9"
-                android:fontFamily="@font/poppins_regular"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/total_steps"
-                android:textColor="@color/grey_line"
-                android:textSize="@dimen/_10ssp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/ll_step" />
+                app:layout_constraintTop_toBottomOf="@id/tv_step_cont" />
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/btn_start"
@@ -97,7 +104,7 @@
             android:background="@drawable/bg_round_5"
             android:clickable="true"
             android:focusable="true"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_semibold"
             android:foreground="@drawable/btn_ripple"
             android:includeFontPadding="false"
             android:paddingHorizontal="@dimen/_15ssp"
@@ -113,7 +120,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/_10ssp"
-        android:background="@drawable/bg_blue_round"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ll_step">
@@ -123,9 +129,8 @@
             android:layout_width="@dimen/_10ssp"
             android:layout_height="@dimen/_10ssp"
             android:layout_marginBottom="@dimen/_5ssp"
-            android:alpha="0.8"
             android:src="@drawable/heart_bit"
-            android:tint="@color/border_blue"
+            android:tint="@color/white"
             app:layout_constraintBottom_toTopOf="@id/tv_heart_bit"
             app:layout_constraintEnd_toEndOf="@id/tv_heart_bit"
             app:layout_constraintStart_toStartOf="@id/tv_heart_bit" />
@@ -139,6 +144,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
+            android:includeFontPadding="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tv_calories_burned"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,11 +156,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_1ssp"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_semibold"
             android:includeFontPadding="false"
             android:text="@string/heart_bit"
-            android:textColor="@color/grey_line"
             android:textSize="@dimen/_8ssp"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@id/tv_heart_bit"
             app:layout_constraintStart_toStartOf="@id/tv_heart_bit"
             app:layout_constraintTop_toBottomOf="@id/tv_heart_bit" />
@@ -173,9 +179,8 @@
             android:layout_width="@dimen/_10ssp"
             android:layout_height="@dimen/_10ssp"
             android:layout_marginBottom="@dimen/_5ssp"
-            android:alpha="0.8"
             android:src="@drawable/calories"
-            android:tint="@color/border_blue"
+            android:tint="@color/white"
             app:layout_constraintBottom_toTopOf="@id/tv_calories_burned"
             app:layout_constraintEnd_toEndOf="@id/tv_calories_burned"
             app:layout_constraintStart_toStartOf="@id/tv_calories_burned" />
@@ -188,6 +193,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
+            android:includeFontPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_heart_bit"
             app:layout_constraintTop_toTopOf="@id/tv_heart_bit"
@@ -198,10 +204,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_1ssp"
-            android:fontFamily="@font/poppins_regular"
+            android:fontFamily="@font/poppins_semibold"
             android:includeFontPadding="false"
             android:text="@string/kcal"
-            android:textColor="@color/grey_line"
+            android:textColor="@color/white"
             android:textSize="@dimen/_8ssp"
             app:layout_constraintEnd_toEndOf="@id/tv_calories_burned"
             app:layout_constraintStart_toStartOf="@id/tv_calories_burned"
@@ -219,9 +225,9 @@
         android:foreground="@drawable/btn_ripple"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingEnd="@dimen/_10ssp"
-        android:paddingStart="@dimen/_5ssp"
         android:paddingVertical="@dimen/_5ssp"
+        android:paddingStart="@dimen/_5ssp"
+        android:paddingEnd="@dimen/_10ssp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -230,11 +236,11 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:layout_width="@dimen/_20ssp"
             android:layout_height="@dimen/_20ssp"
+            android:background="@drawable/bg_round_white"
             android:clickable="false"
             android:padding="@dimen/_5ssp"
-            android:background="@drawable/bg_round_white"
             android:src="@drawable/share"
-            android:tint="@color/accent" />
+            android:tint="@color/pink" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/iv_share"
@@ -242,7 +248,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5ssp"
             android:clickable="false"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_semibold"
             android:includeFontPadding="false"
             android:text="@string/share_with_friends"
             android:textAlignment="center"
