@@ -14,11 +14,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,21 +30,18 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.wear.compose.material.Button
-import androidx.wear.compose.material.ButtonDefaults
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
 import com.group4.fitconnect.R
-import com.group4.fitconnect.viewmodel.HealthViewModel
 
 @Composable
-fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
-    healthViewModel.getHeartRate()
-    val goal = healthViewModel.goal.value
-    val heartRate = healthViewModel.heartRate.value
-    val caloriesBurned = currentSteps * 0.045
-    val isRunning by remember { mutableStateOf(false) }
-
+fun SensorDetails(
+    currentSteps: Int,
+    heartRate: Int,
+    shareClicked: () -> Unit,
+    resetClicked: () -> Unit
+) {
+    var isRunning by remember { mutableStateOf(false) }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
@@ -68,7 +65,7 @@ fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
         Text(
             fontSize = 8.sp,
             color = colorResource(id = R.color.grey_line),
-            text = "/$goal"
+            text = "5000"
         )
         Spacer(modifier = Modifier.height(5.dp))
         Row(
@@ -110,26 +107,22 @@ fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
                 )
             }
             Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { isRunning != isRunning },
-                colors = ButtonDefaults.buttonColors(Color.Transparent),
+            Image(
                 modifier = Modifier
+                    .clickable {
+                        isRunning = !isRunning
+                        resetClicked()
+                    }
                     .size(40.dp)
-                    .background(color = Color.Transparent),
-                content = {
-                    Image(
-                        modifier = Modifier
-                            .clickable { isRunning != isRunning }
-                            .size(40.dp)
-                            .background(
-                                color = colorResource(id = R.color.background_light),
-                                CircleShape,
-                            )
-                            .padding(12.dp),
-                        colorFilter = ColorFilter.tint(colorResource(id = R.color.accent)),
-                        painter = painterResource(id = R.drawable.reset),
-                        contentDescription = null
+                    .background(
+                        color = colorResource(id = R.color.background_light),
+                        CircleShape,
                     )
-                })
+                    .padding(12.dp),
+                colorFilter = ColorFilter.tint(colorResource(id = R.color.accent)),
+                painter = painterResource(id = R.drawable.reset),
+                contentDescription = null
+            )
             Spacer(modifier = Modifier.width(5.dp))
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -154,7 +147,7 @@ fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
                     fontSize = 8.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.White,
-                    text = caloriesBurned.toString()
+                    text = (currentSteps * 0.045).toString()
                 )
                 Text(
                     modifier = Modifier.padding(1.dp),
@@ -164,30 +157,6 @@ fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
                 )
             }
         }
-        Spacer(modifier = Modifier.height(10.dp))
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier
-                .height(20.dp)
-                .background(
-                    color = colorResource(id = R.color.background_light),
-                    RoundedCornerShape(20.dp),
-                )
-                .padding(vertical = 4.dp, horizontal = 8.dp),
-        ) {
-            Image(
-                modifier = Modifier
-                    .size(7.dp),
-                colorFilter = ColorFilter.tint(colorResource(id = R.color.border_blue)),
-                painter = painterResource(id = R.drawable.share),
-                contentDescription = null
-            )
-            Spacer(modifier = Modifier.width(5.dp))
-            Text(text = stringResource(id = R.string.share),
-                fontSize = 7.sp,
-                color = MaterialTheme.colors.primary)
-
-        }
+        Share(shareClicked)
     }
 }
