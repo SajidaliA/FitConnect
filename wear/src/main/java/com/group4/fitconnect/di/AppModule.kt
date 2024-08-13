@@ -1,4 +1,4 @@
-package com.group4.fitconnect.id
+package com.group4.fitconnect.di
 
 import android.content.Context
 import com.group4.fitconnect.health.HealthServiceManager

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_gradient"
+    android:background="@color/background"
     tools:context=".presentation.MainActivity">
 
     <TextView
@@ -55,12 +55,12 @@
                 android:id="@+id/circular_progress"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
-                app:cpb_background_progressbar_color="#55F2F2F2"
-                app:cpb_background_progressbar_width="@dimen/_10ssp"
+                app:cpb_background_progressbar_color="@color/progress_bg"
+                app:cpb_background_progressbar_width="@dimen/_9ssp"
                 app:cpb_progress_max="5000"
                 app:cpb_progress="2654"
                 app:cpb_progressbar_color="@color/white"
-                app:cpb_progressbar_width="@dimen/_9ssp"
+                app:cpb_progressbar_width="@dimen/_8ssp"
                 app:cpb_round_border="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
-            android:id="@+id/btn_start"
+            android:id="@+id/btn_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_20ssp"
@@ -109,7 +109,7 @@
             android:includeFontPadding="false"
             android:paddingHorizontal="@dimen/_15ssp"
             android:paddingVertical="@dimen/_5ssp"
-            android:text="@string/start"
+            android:text="@string/reset"
             android:textColor="@color/white"
             android:textSize="@dimen/_8ssp" />
 
@@ -140,7 +140,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginVertical="@dimen/_30ssp"
-            android:alpha="0.8"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
@@ -159,6 +158,7 @@
             android:fontFamily="@font/poppins_semibold"
             android:includeFontPadding="false"
             android:text="@string/heart_bit"
+            android:alpha="0.8"
             android:textSize="@dimen/_8ssp"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@id/tv_heart_bit"
@@ -189,7 +189,6 @@
             android:id="@+id/tv_calories_burned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:alpha="0.8"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp"
@@ -209,6 +208,7 @@
             android:text="@string/kcal"
             android:textColor="@color/white"
             android:textSize="@dimen/_8ssp"
+            android:alpha="0.8"
             app:layout_constraintEnd_toEndOf="@id/tv_calories_burned"
             app:layout_constraintStart_toStartOf="@id/tv_calories_burned"
             app:layout_constraintTop_toBottomOf="@id/tv_calories_burned" />

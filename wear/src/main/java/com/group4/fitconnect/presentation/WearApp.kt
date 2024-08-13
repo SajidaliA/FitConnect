@@ -5,9 +5,9 @@ import com.group4.fitconnect.presentation.theme.FitConnectTheme
 
 //Main composable method to make UI and set sensor data
 @Composable
-fun WearApp() {
+fun WearApp(currentSteps: Int) {
     FitConnectTheme {
         CheckSensorPermission()
-        StepProgress()
+        StepProgress(currentSteps)
     }
 }

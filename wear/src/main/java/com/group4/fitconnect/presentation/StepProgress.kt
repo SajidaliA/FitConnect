@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
@@ -16,15 +17,21 @@ import com.group4.fitconnect.viewmodel.HealthViewModel
 
 
 @Composable
-fun StepProgress() {
+fun StepProgress(currentSteps: Int) {
     val healthViewModel: HealthViewModel = hiltViewModel()
-    val steps = healthViewModel.steps.value
     val goal = healthViewModel.goal.value
-    val progress = (steps/goal).toFloat()
+    val progress = (currentSteps/goal).toFloat()
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background)),
+            .background(
+                brush = Brush.verticalGradient(
+                    colors = listOf(
+                        colorResource(id = R.color.border_blue),
+                        colorResource(id = R.color.accent)
+                    )
+                )
+            ),
     ) {
         CircularProgressIndicator(
             modifier = Modifier
@@ -33,8 +40,8 @@ fun StepProgress() {
                 .background(Color.Transparent),
             progress = progress,
             strokeWidth = 8.dp,
-            indicatorColor = colorResource(id = R.color.border_blue)
+            indicatorColor = colorResource(id = R.color.white)
         )
-        SensorDetails(healthViewModel)
+        SensorDetails(healthViewModel, currentSteps)
     }
 }

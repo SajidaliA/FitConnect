@@ -38,12 +38,11 @@ import com.group4.fitconnect.R
 import com.group4.fitconnect.viewmodel.HealthViewModel
 
 @Composable
-fun SensorDetails(healthViewModel: HealthViewModel) {
+fun SensorDetails(healthViewModel: HealthViewModel, currentSteps: Int) {
     healthViewModel.getHeartRate()
     val goal = healthViewModel.goal.value
     val heartRate = healthViewModel.heartRate.value
-    val steps = healthViewModel.steps.value
-    val caloriesBurned = steps * 0.045
+    val caloriesBurned = currentSteps * 0.045
     val isRunning by remember { mutableStateOf(false) }
 
     Column(
@@ -64,7 +63,7 @@ fun SensorDetails(healthViewModel: HealthViewModel) {
             fontSize = 35.sp,
             fontWeight = FontWeight.Bold,
             color = Color.White,
-            text = steps.toString()
+            text = currentSteps.toString()
         )
         Text(
             fontSize = 8.sp,
@@ -190,8 +189,5 @@ fun SensorDetails(healthViewModel: HealthViewModel) {
                 color = MaterialTheme.colors.primary)
 
         }
-
-
     }
-
 }
